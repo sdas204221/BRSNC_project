@@ -20,7 +20,7 @@ def main(size,L):
             for j in range(size):
                 x,y=catMap(i,j,size)
                 newPixels[x,y]=oldPixels[i,j]
-        if z==L//2:
+        if z==90:
             encryptedImage=e1(newPixels,size,0.5,3.14)
             encryptedImage.save(outputPath+str(z)+".encrypted.png")
             pass
