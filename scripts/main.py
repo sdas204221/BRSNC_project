@@ -2,13 +2,13 @@ from scramble import catMap
 from encryption import e1
 from PIL import Image
 
-inputPath="images/"
-outputPath="output/"
+inputPath="../data/images/"
+outputPath="../data/output/"
 imageName="4.1.04.tiff"
 def main(size,L):
     img=Image.open(inputPath+imageName)
     grayImg=img.convert("L")
-    grayImg.save("output/scramble/0.png")
+    grayImg.save(outputPath+"scramble/0.png")
     grayPixels=grayImg.load()
     oldPixels=grayPixels
     newImg=Image.new("L",(size,size),(0))
@@ -20,7 +20,7 @@ def main(size,L):
             for j in range(size):
                 x,y=catMap(i,j,size)
                 newPixels[x,y]=oldPixels[i,j]
-        if z==90:
+        if z==91:
             encryptedImage=e1(newPixels,size,0.5,3.14)
             encryptedImage.save(outputPath+str(z)+".encrypted.png")
             pass
