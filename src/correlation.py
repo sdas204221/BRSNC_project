@@ -2,7 +2,7 @@ from PIL import Image
 import statistics
 
 from matplotlib import pyplot as plt
-
+#TODO a function is logicaly incorrect 
 def correlation(x,y):
     n=len(x)
     xMean=statistics.mean(x)
@@ -29,7 +29,7 @@ def selfCorrelationVertical(image,requirePlot=True):
     pixel_values=list()
     for i in range(sizeY):
         for j in range(sizeX):
-            pixel_values.append(img[j,i])    
+            pixel_values.append(img[i,j])    
     x=list(pixel_values[:len(pixel_values)-1])
     y=list(pixel_values[1:len(pixel_values)])
     if(requirePlot):
@@ -53,8 +53,9 @@ def scatterPlot(x,y):
     plt.show()
 
 def test():
-    img1=Image.open("../data/output/scramble/0.png")
-    img2=Image.open("../data/output/90.encrypted.png")
-    x=toImageCorrelation(img1,img2)
+    img1=Image.open("./data/output/scramble/0.png")
+    img2=Image.open("./data/output/90.encrypted.png")
+    x=selfCorrelationVertical(img1)
     print(x)
 
+test()
