@@ -26,7 +26,7 @@ def showHistogram(image,suptitle,figureId,color=""):
     plt.ylabel("Frequency of ocarence")
     histogram=image.histogram()
     pixel_values=list(range(256))
-    plt.bar(pixel_values, histogram, width=1, edgecolor='black')
+    plt.bar(pixel_values, histogram, width=1, edgecolor=color,color=color)
     
 
 main()
